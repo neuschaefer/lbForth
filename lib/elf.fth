@@ -1,7 +1,7 @@
 \ Create a Executale and Linkable Format (ELF) image file in memory.
 
 \ Documentation:
-\ elf-header, ( a u -- ) \ Create header loding at a with machine type u.
+\ elf-header, ( a u -- ) \ Create header at a with machine type u.
 \ elf-start ( a -- ) \ Specify the start header in memory.
 \ elf-entry-point ( a -- ) \ Set the entry point.
 \ elf-extra-bytes ( u -- ) \ Add uninitialized bytes to the end of the image.
