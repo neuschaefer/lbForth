@@ -25,9 +25,11 @@ load-address ' image0 >body !
 here ' dp0 >body !
 
 \ Allocate space for dictionary and stacks.
+dp @ hex 80000000 dp !		( place runtime data in RAM )
 here
    decimal
-   18000 cells allot  here ' limit >body !
+   3600 cells allot  here ' limit >body !
    64 cells allot  here ' sp0 >body !
    128 cells allot  here ' rp0 >body !
 here - dup allot negate extra-bytes
+dp !

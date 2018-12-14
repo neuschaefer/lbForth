@@ -36,13 +36,13 @@ defer !offset
 : u-type!   >liu opcode FFFFF000 !bits ;
 : store-offset!   dup rd!  014 lshift opcode FE000000 !bits ;
 : jump-offset!   dup 014 lshift opcode 7FE00000 !bits
-                 dup 009 lshift opcode 00100000 !bits
-                 dup            opcode 000FF000 !bits
-                     00B lshift opcode 80000000 !bits ;
+	 dup 009 lshift opcode 00100000 !bits
+	 dup            opcode 000FF000 !bits
+	     00B lshift opcode 80000000 !bits ;
 : branch-offset!   dup 007 lshift opcode 00000F00 !bits
-                   dup 014 lshift opcode 7E000000 !bits
-                   dup 004 rshift opcode 00000080 !bits
-                       013 lshift opcode 80000000 !bits ;
+	   dup 014 lshift opcode 7E000000 !bits
+	   dup 004 rshift opcode 00000080 !bits
+	       013 lshift opcode 80000000 !bits ;
 
 \ Access instruction fields.
 : opcode@   opcode @ ;

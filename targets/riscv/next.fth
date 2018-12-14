@@ -6,11 +6,11 @@ include targets/riscv/params.fth
 [then]
 
 \ Register allocation.  x10-x17 are used in Linux syscalls.
-: S   x20 ;
-: R   x21 ;
-: I   x22 ;
-: W   x23 ;
-: T   x24 ;
+: S   x20 ;  \ s4
+: R   x21 ;  \ s5
+: I   x22 ;  \ s6
+: W   x23 ;  \ s7
+: T   x24 ;  \ s8
 
 \ Macros.
 : op>r     postpone >r postpone 2>r ; compile-only

@@ -257,9 +257,10 @@ create string-source   0 -1 ' string-refill ' noop source,
 
 create tib   256 allot
 
-: key   here dup 1 stdin read-file if bye then  0= if bye then  c@ ;
+( TODO: allow replacing stdin with a line editor based on KEY? and EKEY )
+?: key   here dup 1 stdin read-file if bye then  0= if bye then  c@ ;
 
-: terminal-refill   tib 256 bounds do
+?: terminal-refill   tib 256 bounds do
       key dup 10 = if drop leave then
       i c!  1 #source +!
    loop -1 ;
