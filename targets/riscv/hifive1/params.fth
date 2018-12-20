@@ -3,6 +3,7 @@
 hex
 variable address-field
 20400000 constant load-address  ( load to "user" part of the SPI flash )
+80000000 ramdp !                ( RAM is at 80000000 )
 : exe-header    ( a -- ;  put down a jump, patched in ENTRY-POINT )
                 00000297 ,      ( auipc t0, 0 )
                 00c2a283 ,      ( lw    t0, 0xc[t0] )

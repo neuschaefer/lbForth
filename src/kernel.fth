@@ -292,7 +292,6 @@ defer quit
    ." lbForth" cr
 
    dp0 dp !
-   ." dp initialized" cr
 
    ['] noop dup is backtrace is also
    ['] dummy-catch is catch
@@ -315,6 +314,7 @@ defer quit
 
    [compile] [
    s" load.fth" included
+   ." ok" cr
    quit ;
 
 \ NOTE: THIS HAS TO BE THE LAST WORD IN THE FILE!

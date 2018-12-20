@@ -11,6 +11,10 @@ only forth definitions
 
 also meta definitions
 
+( The RAM data pointer. Targets can set it to non-zero if there is a separate
+  area of readable and writable memory that should be used for variables. )
+variable ramdp  ramdp 0 !
+
 s" " searched
 s" src/" searched
 include params.fth
@@ -58,11 +62,16 @@ host also meta definitions
 ' dodef code@ to 'dodef
 ' dodoes code@ to 'dodoes
 
+( allocate space in variable area )
+h: vallot ( offset -- )  ramdp @ if ramdp @ + ramdp !  else allot then ;
+h: vhere  ( -- address ) ramdp @ if ramdp @ else here then ;
+
 h: :   parse-name header, docol, ] ;
-h: create   parse-name header, dovar, ;
-h: variable   create cell allot ;
-h: defer   parse-name header, dodef, compile abort ;
 h: constant   parse-name header, docon, , ;
+h: create   ramdp @ if ramdp @ constant
+     else   parse-name header, dovar, then ;
+h: variable   create cell vallot ;
+h: defer   parse-name header, dodef, compile abort ;
 h: value   constant ;
 h: immediate   latest >nfa dup c@ negate swap c! ;
 h: to   ' >body ! ;
