@@ -293,7 +293,8 @@ defer quit
 
    dp0 dp !
 
-   ['] noop dup is backtrace is also
+   ['] noop dup ['] backtrace >body @ !
+                ['] also      >body @ !
    ['] dummy-catch is catch
    ['] (number) is number
    ['] (parsed) is parsed

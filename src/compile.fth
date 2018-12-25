@@ -65,13 +65,16 @@ host also meta definitions
 ( allocate space in variable area )
 h: vallot ( offset -- )  ramdp @ if ramdp @ + ramdp !  else allot then ;
 h: vhere  ( -- address ) ramdp @ if ramdp @ else here then ;
+h: ,v     ( x -- )       vhere ! cell vallot ;
 
 h: :   parse-name header, docol, ] ;
 h: constant   parse-name header, docon, , ;
 h: create   ramdp @ if ramdp @ constant
      else   parse-name header, dovar, then ;
 h: variable   create cell vallot ;
-h: defer   parse-name header, dodef, compile abort ;
+h: defer   parse-name header, dodef,
+           ramdp @ if ramdp @ ,  cell vallot \ left uninitialized
+           else here cell+ ,     ['] abort >body , then ;
 h: value   constant ;
 h: immediate   latest >nfa dup c@ negate swap c! ;
 h: to   ' >body ! ;

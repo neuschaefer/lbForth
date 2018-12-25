@@ -12,6 +12,8 @@ targets.  There is a [cross
 compiler](http://github.com/larsbrinkhoff/xForth) for 6502, 8051, AVR,
 Cortex-M, MSP430, PDP-8, PIC, and STM8.
 
+In this branch: WIP support for the SiFive HiFive1.
+
 ( Continuous integration )
 
 The code is continuously built and tested in Linux, MacOS X, and

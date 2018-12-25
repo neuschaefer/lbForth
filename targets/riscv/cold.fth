@@ -10,8 +10,9 @@ code cold
    ' rp0 >body # x5 x5 addi,
    x5 ) R lw,
 
-   ' turnkey # W lui,
-   ' turnkey # W W addi,
+   ' turnkey # T lui,
+   ' turnkey # T T addi,
+   4 T )# W lw,
    execute,
    decimal
 end-code

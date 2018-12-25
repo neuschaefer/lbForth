@@ -89,6 +89,7 @@ create voc-link  ' env-words ,
 
 : buffer:   create allot ;
 
+( WARNING: This is now incompatible with compiled deferred words )
 : alias ( xt "name" -- ) header dodef, , ;
 
 : defer   ['] abort alias ;

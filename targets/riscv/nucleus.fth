@@ -53,7 +53,8 @@ code docon
 end-code
 
 code dodef
-   body-offset W )# W lw,
+   body-offset W )# T lw,
+   T ) W lw,
    execute,
    next,
 end-code
